@@ -4,6 +4,6 @@ with pkgs;
 
 mkShell {
   nativeBuildInputs = [
-    pypykatz
+    python39Packages.pypykatz
   ];
 }

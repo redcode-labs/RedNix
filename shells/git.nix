@@ -5,7 +5,7 @@ with pkgs;
 mkShell {
   nativeBuildInputs = [
     gitjacker
-    truffleHog
+    trufflehog
     gitleaks
     shhgit
     secretscanner

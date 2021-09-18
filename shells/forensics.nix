@@ -9,7 +9,7 @@ mkShell {
     ddrescue
     ddrescueview
     dislocker
-    distorm3
+    python39Packages.distorm3
     exiv2
     ext4magic
     extundelete

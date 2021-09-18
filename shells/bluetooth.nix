@@ -5,6 +5,6 @@ with pkgs;
 mkShell {
   nativeBuildInputs = [
     bluez
-    bleak     
+    python39Packages.bleak     
   ];
 }

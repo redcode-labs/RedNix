@@ -10,6 +10,7 @@
     flashrom
     htop
     httpie
+    i2pd
     inetutils
     inxi
     iproute
@@ -17,6 +18,7 @@
     iw
     lynx
     macchanger
+    ngrok
     vim
     parted
     pwgen
@@ -30,6 +32,8 @@
     ripgrep-all
     ranger
     file
+    tor
+    torsocks
 
     # Misc
     badchars
@@ -74,7 +78,7 @@
     xrdp
 
     # Network
-    netkitftp
+    netkittftp
     atftp
     evillimiter
     iperf2
@@ -111,7 +115,7 @@
     hping
     ostinato
     pktgen
-    scapy
+    python39Packages.scapy
 
     # Vul. analysis
     checksec
@@ -176,7 +180,7 @@
     reaverwps-t6x
     wavemon
     wifite2
-    rfkill
+    util-linux
     gqrx
     kalibrate-hackrf
     kalibrate-rtl
@@ -194,6 +198,7 @@
     bingrep
     gdb
     ghidra-bin
+    mono
     pev
     pwndbg
     python39Packages.binwalk
@@ -246,7 +251,7 @@
     ddrescue
     ddrescueview
     dislocker
-    distorm3
+    python39Packages.distorm3
     exiv2
     ext4magic
     extundelete
@@ -289,7 +294,7 @@
 
     # Bluetooth
     bluez
-    bleak
+    python39Packages.bleak
 
     # Passwords
     badtouch
@@ -318,7 +323,7 @@
     enum4linux
     enum4linux-ng
     ike-scan
-    ldapdomaindump
+    python39Packages.ldapdomaindump
     ldeep
     metasploit
     nikto
@@ -331,7 +336,7 @@
 
     # Git
     gitjacker
-    truffleHog
+    trufflehog
     gitleaks
     shhgit
     secretscanner
@@ -397,7 +402,7 @@
     kube-score
 
     # Windows
-    pypykatz
+    python39Packages.pypykatz
     nbtscanner
   ];
 }

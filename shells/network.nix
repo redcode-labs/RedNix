@@ -4,7 +4,7 @@ with pkgs;
 
 mkShell {
   nativeBuildInputs = [
-    netkitftp
+    netkittftp
     atftp
     evillimiter
     iperf2

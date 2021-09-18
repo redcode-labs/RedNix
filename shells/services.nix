@@ -7,7 +7,7 @@ mkShell {
     enum4linux
     enum4linux-ng
     ike-scan
-    ldapdomaindump
+    python39Packages.ldapdomaindump
     ldeep
     metasploit
     nikto
