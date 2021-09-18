@@ -9,6 +9,6 @@ mkShell {
     hping
     ostinato
     pktgen
-    scapy
+    python39Packages.scapy
   ];
 }

@@ -15,7 +15,7 @@ mkShell {
     reaverwps-t6x
     wavemon
     wifite2
-    rfkill
+    util-linux
     gqrx
     kalibrate-hackrf
     kalibrate-rtl

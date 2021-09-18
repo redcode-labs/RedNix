@@ -7,12 +7,13 @@ mkShell {
     bingrep
     gdb
     ghidra-bin
+    mono
     pev
     pwndbg
     python39Packages.binwalk
     python39Packages.binwalk-full
     python39Packages.unicorn
-    r2pipe
+    python39Packages.r2pipe
     radare2
     radare2-cutter
     unicorn

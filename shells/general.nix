@@ -10,6 +10,7 @@ mkShell {
     flashrom
     htop
     httpie
+    i2pd
     inetutils
     inxi
     iproute
@@ -17,6 +18,7 @@ mkShell {
     iw
     lynx
     macchanger
+    ngrok
     vim
     parted
     pwgen
@@ -29,6 +31,8 @@ mkShell {
     ripgrep
     ripgrep-all
     ranger
-    file         
+    file
+    tor
+    torsocks         
   ];
 }
