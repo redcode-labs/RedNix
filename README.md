@@ -75,7 +75,7 @@ This container can be configured to your needs. Whether you just want less packa
 
 By default, next free address in `10.233.0.0/16` subnet will be container's IP. You can edit this, doing, for instance:
 
-`nixos-container create rednix --config file configuration.nix --local-address 10.235.1.2 --host-address 10.235.1.1`
+`nixos-container create rednix --config-file configuration.nix --local-address 10.235.1.2 --host-address 10.235.1.1`
 
 If you create a container using `nixos-container create`, it will get it's own private IPv4 in the range mentioned before.
 
