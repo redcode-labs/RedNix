@@ -13,7 +13,7 @@
   }: let
     supportedSystems = ["aarch64-linux" "aarch64-darwin" "x86_64-darwin" "x86_64-linux"];
     genSystems = nixpkgs.lib.genAttrs supportedSystems;
-    pkgs = genSystems (system: import nixpkgs {inherit system;});
+    pkgs = genSystems (system: import nixpkgs {inherit system; config.allowUnfree = true;});
   in {
     # auto-generated devShells
     devShells = genSystems (system: import ./shells pkgs.${system});

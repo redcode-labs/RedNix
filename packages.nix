@@ -217,7 +217,6 @@ pkgs: let
       masscan
       naabu
       nmap
-      nmap-graphical
       rustscan
       zmap
     ];

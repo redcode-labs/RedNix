@@ -8,3 +8,9 @@ pkgs: let
   packages;
 in
   shells
+  // {
+    default = pkgs.mkShell {
+      packages = pkgs.lib.flatten (builtins.attrValues packages);
+      name = "default";
+    };
+  }
