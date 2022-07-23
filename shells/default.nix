@@ -1,5 +1,8 @@
-pkgs: let
-  packages = import ../packages.nix pkgs;
+args @ {
+  pkgs,
+  inputs,
+}: let
+  packages = import ../packages.nix args;
   shells = builtins.mapAttrs (n: v:
     pkgs.mkShell {
       packages = v;

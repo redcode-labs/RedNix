@@ -1,5 +1,28 @@
 {
   "nodes": {
+    "hackpkgs": {
+      "inputs": {
+        "flake-utils": [
+          "utils"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1621341463,
+        "narHash": "sha256-Q+t5MuQcGzaL3zNuNkE4p20ZAgQqh4fEgh8IjRc0x3c=",
+        "owner": "applePrincess",
+        "repo": "hackpkgs",
+        "rev": "03550fbe91dfb9fcf93bf702da8fdf79afbfb0b3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "applePrincess",
+        "repo": "hackpkgs",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1658150454,
@@ -18,6 +41,7 @@
     },
     "root": {
       "inputs": {
+        "hackpkgs": "hackpkgs",
         "nixpkgs": "nixpkgs",
         "utils": "utils"
       }
