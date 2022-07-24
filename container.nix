@@ -32,18 +32,22 @@ in {
     };
   };
 
+    # nix config
   nix = {
     package = pkgs.nixUnstable;
-    extraOptions = ''
-      experimental-features = nix-command flakes
-    '';
+    settings = {
+      extra-experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
+    };
   };
 
-  # packages
-  nixpkgs = {
-    config = {
-      allowUnfree = true;
-    };
+  # nixpkgs config
+  nixpkgs.config = {
+    allowUnfree = true;
+    allowBroken = true;
+    allowInsecurePredicate = p: true;
   };
 
   # services

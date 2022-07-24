@@ -22,7 +22,11 @@
     pkgs = genSystems (system:
       import nixpkgs {
         inherit system;
-        config.allowUnfree = true;
+        config = {
+          allowUnfree = true;
+          allowBroken = true;
+          allowInsecurePredicate = p: true;
+        };
       });
   in {
     # auto-generated devShells
