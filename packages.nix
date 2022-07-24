@@ -260,7 +260,7 @@
       netkittftp
       netmask
       nload
-      nuttcp
+      # nuttcp
       p0f
       putty
       pwnat
