@@ -10,11 +10,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1621341463,
-        "narHash": "sha256-Q+t5MuQcGzaL3zNuNkE4p20ZAgQqh4fEgh8IjRc0x3c=",
+        "lastModified": 1658745217,
+        "narHash": "sha256-VyP2WOYmMZG5zmysQWDAXri8H1KwIQ0c+YU9eRiKjc0=",
         "owner": "applePrincess",
         "repo": "hackpkgs",
-        "rev": "03550fbe91dfb9fcf93bf702da8fdf79afbfb0b3",
+        "rev": "dd31e977fb99a6f7226954d2cb1d6f48869d8a55",
         "type": "github"
       },
       "original": {

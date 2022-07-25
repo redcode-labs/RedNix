@@ -155,6 +155,15 @@
       tor
       torsocks
       xh
+      python3
+      firefox-bin
+      exa
+      bat
+      fd
+      procs
+      sd
+      dust
+      grex
     ];
 
     git = with pkgs; [
