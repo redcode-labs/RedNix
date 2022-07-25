@@ -49,6 +49,18 @@
       sqlmap
     ];
 
+    crypto = with pkgs; [
+      (sage.override {
+        requireSageTests = false;
+        extraPythonPackages = p:
+          with p; [
+            pwntools
+            pycryptodome
+            gmpy2
+          ];
+      })
+    ];
+
     dns = with pkgs; [
       aiodnsbrute
       amass
