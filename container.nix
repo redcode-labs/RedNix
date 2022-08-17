@@ -15,7 +15,7 @@ in {
     shellInit = "export DISPLAY=${get-host-ip}:0";
   };
 
-  environment.systemPackages = builtins.concatLists (builtins.attrValues (import ./packages.nix pkgs));
+  environment.systemPackages = builtins.concatLists (builtins.attrValues (import ./packages.nix { inherit pkgs inputs; }));
 
   networking = {
     nat = {

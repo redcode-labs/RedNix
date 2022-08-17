@@ -49,6 +49,7 @@
     nixosConfigurations = genSystems (system:
       nixpkgs.lib.nixosSystem {
         inherit system;
+        specialArgs = { inherit inputs; };
         modules = [./container.nix];
       });
 
