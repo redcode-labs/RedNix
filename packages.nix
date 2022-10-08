@@ -171,7 +171,7 @@
       cargo-audit
       credential-detector
       detect-secrets
-      freeze
+      # freeze
       garble
       gitjacker
       gitleaks
