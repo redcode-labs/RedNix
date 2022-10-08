@@ -143,7 +143,7 @@
       vim
       parted
       pwgen
-      utillinux
+      util-linux
       wget
       coreutils
       killall
