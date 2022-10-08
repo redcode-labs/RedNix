@@ -82,10 +82,12 @@
 
     forensics = with pkgs; [
       afflib
+      amoco
       dcfldd
       ddrescue
       ddrescueview
       dislocker
+      dismember
       python3Packages.distorm3
       exiv2
       ext4magic
@@ -133,7 +135,6 @@
       i2pd
       inetutils
       inxi
-      iproute
       iproute2
       iw
       lynx
@@ -163,12 +164,15 @@
       procs
       sd
       grex
+      linux-exploit-suggester
     ];
 
     git = with pkgs; [
       cargo-audit
       credential-detector
       detect-secrets
+      freeze
+      garble
       gitjacker
       gitleaks
       gitls
@@ -190,6 +194,7 @@
       # chipsec
       esptool
       extrude
+      gallia
       hachoir
       python3Packages.angr
       python3Packages.angrop
@@ -214,6 +219,11 @@
       urlhunter
     ];
 
+    cloud = with pkgs; [
+      cloud-nuke
+      cloudfox
+    ];
+
     kubernetes = with pkgs; [
       cfripper
       checkov
@@ -221,13 +231,17 @@
       kube-score
       kubeaudit
       kubescape
+      popeye
+      cirrusgo
     ];
 
     ldap = with pkgs; [
       python3Packages.ldapdomaindump
       adenum
       ldapmonitor
+      ldapnomnom
       ldeep
+      silenthound
     ];
 
     load-testing = with pkgs; [
@@ -249,6 +263,7 @@
       nmap-formatter
       pwntools
       python3Packages.pytenable
+      snscrape
     ];
 
     mobile = with pkgs; [
@@ -403,6 +418,7 @@
       swaks
       traitor
       # wafw00f
+      uncover
     ];
 
     smartcards = with pkgs; [
@@ -431,6 +447,8 @@
       ssldump
       sslsplit
       testssl
+      tlsx
+      sslscan
     ];
 
     supply-chain = with pkgs; [
@@ -515,10 +533,13 @@
       cameradar
       cariddi
       chopchop
+      clairvoyance
       commix
       corsair
+      crackql
       crlfsuite
       dalfox
+      dirstalk
       dirb
       dismap
       dontgo403
@@ -550,6 +571,7 @@
       python3Packages.corsair-scan
       redsocks
       rshijack
+      scraper
       slowlorust
       snallygaster
       subjs
@@ -562,11 +584,13 @@
       wpscan
       wuzz
       zap
+      davtest
     ];
 
     windows = with pkgs; [
       adreaper
       certipy
+      coercer
       enum4linux
       enum4linux-ng
       erosmb
@@ -597,6 +621,7 @@
       kalibrate-hackrf
       kalibrate-rtl
       multimon-ng
+      dbmonster
     ];
   };
 in
