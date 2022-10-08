@@ -390,11 +390,10 @@
       python3Packages.r2pipe
       python3Packages.unicorn
       radare2
-      radare2-cutter
+      cutter
       rizin
       stacks
-      unicorn
-      unicorn-emu
+      unicorn 
       valgrind
       volatility3
       xortool
