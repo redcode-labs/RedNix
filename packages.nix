@@ -109,6 +109,7 @@
       xorex
       capstone
       pdf-parser
+      acquire
     ];
 
     fuzzers = with pkgs; [
@@ -226,7 +227,7 @@
 
     kubernetes = with pkgs; [
       cfripper
-      checkov
+      # checkov
       kdigger
       kube-score
       kubeaudit
@@ -276,7 +277,6 @@
       genymotion
       ghost
       simg2img
-      trueseeing
     ];
 
     network = with pkgs; [
@@ -418,6 +418,7 @@
       traitor
       # wafw00f
       uncover
+      ruler
     ];
 
     smartcards = with pkgs; [
@@ -600,7 +601,7 @@
       nbtscanner
       offensive-azure
       python3Packages.pypykatz
-      smbscan
+      # smbscan
     ];
 
     wireless = with pkgs; [
