@@ -169,6 +169,7 @@
     ];
 
     git = with pkgs; [
+      bomber-go
       cargo-audit
       credential-detector
       detect-secrets
@@ -179,6 +180,7 @@
       gitls
       git-secret
       gokart
+      legitify
       osv-detector
       pip-audit
       python310Packages.safety
@@ -216,6 +218,7 @@
       theharvester
       urlhunter
       cloudbrute
+      enumerepo
       ntopng
       urlhunter
     ];
@@ -223,6 +226,7 @@
     cloud = with pkgs; [
       cloud-nuke
       cloudfox
+      yatas
     ];
 
     kubernetes = with pkgs; [
@@ -246,15 +250,18 @@
     ];
 
     load-testing = with pkgs; [
+      ali
       drill
       cassowary
       ddosify
+      oha
       siege
       tsung
       vegeta
     ];
 
     misc = with pkgs; [
+      ares-rs
       badchars
       changetower
       deepsea
@@ -276,6 +283,8 @@
       dex2jar
       genymotion
       ghost
+      payload-dumper-go
+      scrcpy
       simg2img
     ];
 
@@ -379,6 +388,7 @@
       cutter
       gdb
       ghidra-bin
+      ioc-scan
       jd-gui
       mono
       pev
@@ -411,6 +421,8 @@
       metasploit
       nikto
       nuclei
+      openrisk
+      osv-scanner
       checkip
       onesixtyone
       # siege
@@ -419,6 +431,7 @@
       # wafw00f
       uncover
       ruler
+      trustymail
     ];
 
     smartcards = with pkgs; [
@@ -467,6 +480,7 @@
       # multiplexers
       screen
       tmux
+      zellij
     ];
 
     terraform = with pkgs; [
@@ -558,6 +572,7 @@
       jaeles
       jsubfinder
       jwt-hack
+      katana
       kiterunner
       mitmproxy
       mitmproxy2swagger
@@ -566,6 +581,7 @@
       nikto
       ntlmrecon
       photon
+      plecost
       proxify
       proxychains
       python3Packages.corsair-scan
