@@ -185,8 +185,8 @@
       pip-audit
       python310Packages.safety
       secretscanner
-      shhgit
-      skjold
+      # shhgit
+      # skjold
       trufflehog
       whispers
     ];
@@ -215,7 +215,7 @@
       metabigor
       sn0int
       p0f
-      theharvester
+      # theharvester
       urlhunter
       cloudbrute
       enumerepo
@@ -264,7 +264,7 @@
       ares-rs
       badchars
       changetower
-      deepsea
+      #deepsea
       doona
       honeytrap
       jwt-cli
@@ -452,8 +452,8 @@
     ssh = with pkgs; [
       sshchecker
       ssh-audit
-      ssh-mitm
-      ssb
+      # ssh-mitm
+      # ssb
     ];
 
     ssl-tls = with pkgs; [
@@ -495,7 +495,7 @@
       driftnet
       dsniff
       goreplay
-      httpdump
+      # httpdump
       junkie
       netsniff-ng
       ngrep
@@ -575,7 +575,7 @@
       katana
       kiterunner
       mitmproxy
-      mitmproxy2swagger
+      # mitmproxy2swagger
       monsoon
       mubeng
       nikto
@@ -598,7 +598,7 @@
       whatweb
       wprecon
       wpscan
-      wuzz
+      # wuzz
       zap
       davtest
     ];
