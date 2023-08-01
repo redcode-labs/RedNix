@@ -197,7 +197,7 @@
       # chipsec
       esptool
       extrude
-      gallia
+      # gallia
       hachoir
       python3Packages.angr
       python3Packages.angrop
@@ -544,7 +544,7 @@
       bettercap
       brakeman
       burpsuite
-      cameradar
+      # cameradar
       cariddi
       chopchop
       clairvoyance
