@@ -9,6 +9,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "utils";
     };
+    chainsaw = {
+      url = "github:WithSecureLabs/chainsaw";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs @ {nixpkgs, ...}: let
