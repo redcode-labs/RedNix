@@ -11,20 +11,14 @@
     };
   };
 
-  outputs = inputs @ {
-    self,
-    nixpkgs,
-    utils,
-    hackpkgs,
-  }: let
-    supportedSystems = ["aarch64-linux" "aarch64-darwin" "x86_64-darwin" "x86_64-linux"];
+  outputs = inputs @ {nixpkgs, ...}: let
+    supportedSystems = ["x86_64-linux"];
     genSystems = nixpkgs.lib.genAttrs supportedSystems;
     pkgs = genSystems (system:
       import nixpkgs {
         inherit system;
         config = {
           allowUnfree = true;
-          allowBroken = true;
           allowInsecurePredicate = p: true;
         };
       });
@@ -49,8 +43,8 @@
     nixosConfigurations = genSystems (system:
       nixpkgs.lib.nixosSystem {
         inherit system;
-        specialArgs = { inherit inputs; };
-        modules = [./container.nix];
+        specialArgs = {inherit inputs;};
+        modules = [./container-config.nix];
       });
 
     # import into your config for declarative containers
