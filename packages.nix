@@ -114,7 +114,7 @@
     ];
 
     fuzzers = with pkgs; [
-      afl
+      # afl
       aflplusplus
       feroxbuster
       ffuf
@@ -160,7 +160,7 @@
       xh
       python3
       firefox-bin
-      exa
+      eza
       bat
       fd
       procs
@@ -200,8 +200,8 @@
       extrude
       # gallia
       hachoir
-      python3Packages.angr
-      python3Packages.angrop
+      # python3Packages.angr
+      # python3Packages.angrop
       python3Packages.can
       python3Packages.pyi2cflash
       python3Packages.pyspiflash
@@ -293,7 +293,7 @@
       arping
       atftp
       bandwhich
-      crackmapexec
+      netexec
       evillimiter
       ipcalc
       iperf2
@@ -373,7 +373,6 @@
       samba
       step-cli
       tigervnc
-      tightvnc
       wireguard-go
       wireguard-tools
       xrdp
@@ -390,7 +389,7 @@
       gdb
       ghidra-bin
       ioc-scan
-      jd-gui
+      bytecode-viewer
       mono
       pev
       pwndbg
