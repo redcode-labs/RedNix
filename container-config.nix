@@ -39,6 +39,7 @@ in {
   nixpkgs.config = {
     allowUnfree = true;
     allowInsecurePredicate = p: true;
+    segger-jlink.acceptLicense = true;
   };
 
   # services

@@ -24,6 +24,7 @@
         config = {
           allowUnfree = true;
           allowInsecurePredicate = p: true;
+          segger-jlink.acceptLicense = true;
         };
       });
   in {
