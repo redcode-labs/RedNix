@@ -385,7 +385,7 @@
 
     reverse-engineering = with pkgs; [
       bingrep
-      cutter
+      # cutter
       gdb
       ghidra-bin
       ioc-scan
@@ -400,7 +400,6 @@
       python3Packages.r2pipe
       python3Packages.unicorn
       radare2
-      cutter
       rizin
       stacks
       unicorn 
@@ -536,7 +535,7 @@
       chkrootkit
       lynis
       safety-cli
-      tracee
+      # tracee
       vulnix
     ];
 
