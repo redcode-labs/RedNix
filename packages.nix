@@ -45,7 +45,11 @@
     ];
 
     databases = with pkgs; [
+      ghauri
+      laudanum
       mongoaudit
+      nosqli
+      pysqlrecon
       sqlmap
     ];
 
@@ -72,17 +76,39 @@
       dnstake
       dnstracer
       dnstwist
+      dnspeep
       dnsx
       fierce
       findomain
       knockpy
+      massdns
       subfinder
+      subprober
       subzerod
+      wtfis
+    ];
+
+    exploits = with pkgs; [
+      exploitdb
+      go-exploitdb
+      keedump
+      padre
+      sploitscan
+      
+      # log4j-related
+      lmp
+      log4jcheck
+      log4j-detect
+      log4j-scan
+      log4j-sniffer
+      log4j-vuln-scanner
+      logmap
     ];
 
     forensics = with pkgs; [
       afflib
       amoco
+      acquire
       inputs.chainsaw.packages.${pkgs.stdenv.hostPlatform.system}.chainsaw
       dcfldd
       ddrescue
@@ -97,6 +123,8 @@
       gef
       gzrt
       hivex
+      hstsparser
+      noseyparker
       ntfs3g
       ntfsprogs
       nwipe
@@ -110,7 +138,6 @@
       xorex
       capstone
       pdf-parser
-      acquire
     ];
 
     fuzzers = with pkgs; [
@@ -121,6 +148,7 @@
       honggfuzz
       radamsa
       regexploit
+      scout
       ssdeep
       wfuzz
       zzuf
@@ -131,7 +159,13 @@
       chrony
       clamav
       curl
+      cyberchef
+      dorkscout
+      easyeasm
+      exiflooter
       flashrom
+      girsh
+      gtfocli
       htop
       httpie
       i2pd
@@ -173,8 +207,9 @@
       bomber-go
       cargo-audit
       credential-detector
+      deepsecrets
       detect-secrets
-      # freeze
+      freeze
       garble
       gitjacker
       gitleaks
@@ -183,23 +218,29 @@
       gokart
       legitify
       osv-detector
+      packj
       pip-audit
       python310Packages.safety
       secretscanner
+      skjold
+      tell-me-your-secrets
       # shhgit
-      # skjold
       trufflehog
       whispers
+      xeol
     ];
 
     hardware = with pkgs; [
       arduino
       cantoolz
-      # chipsec
+      chipsec
+      cmospwd
       esptool
       extrude
-      # gallia
+      gallia
       hachoir
+      nrfutil
+      teensy-loader-cli
       # python3Packages.angr
       # python3Packages.angrop
       python3Packages.can
@@ -210,15 +251,20 @@
     ids = with pkgs; [
       teler
       waf-tester
+      wafw00f
     ];
 
     info-gathering = with pkgs; [
       metabigor
       sn0int
       p0f
-      # theharvester
+      theharvester
       urlhunter
       cloudbrute
+      holehe
+      # maigret
+      metabigor
+      socialscan
       enumerepo
       ntopng
       urlhunter
@@ -227,24 +273,36 @@
     cloud = with pkgs; [
       cloud-nuke
       cloudfox
+      ec2stepshell
+      gato
+      gcp-scanner
+      goblob
+      imdshift
+      pacu
+      poutine
+      prowler
       yatas
     ];
 
     kubernetes = with pkgs; [
       cfripper
-      # checkov
+      checkov
+      cirrusgo
       kdigger
       kube-score
       kubeaudit
+      kubestroyer
       kubescape
       popeye
-      cirrusgo
     ];
 
     ldap = with pkgs; [
       python3Packages.ldapdomaindump
       adenum
+      hekatomb
+      msldapdump
       ldapmonitor
+      ldapdomaindump
       ldapnomnom
       ldeep
       silenthound
@@ -265,14 +323,20 @@
       ares-rs
       badchars
       changetower
-      #deepsea
+      creds
+      # deepsea
       doona
+      galleta
       honeytrap
       jwt-cli
+      kepler
       nmap-formatter
       pwntools
       python3Packages.pytenable
       snscrape
+      sr2t
+      sttr
+      troubadix
     ];
 
     mobile = with pkgs; [
@@ -287,31 +351,42 @@
       payload-dumper-go
       scrcpy
       simg2img
+      trueseeing
     ];
 
     network = with pkgs; [
       arping
       atftp
+      arpoison
       bandwhich
+      bngblaster
+      cdncheck
       netexec
       evillimiter
       ipcalc
       iperf2
+      iputils
       lftp
+      mitm6
       mtr
       ncftp
       netcat-gnu
+      netexec
       netdiscover
       netkittftp
       netmask
       nload
-      # nuttcp
+      nuttcp
       p0f
+      pingu
       putty
       pwnat
+      responder
+      route-graph
       rustcat
       sshping
       sslh
+      tunnelgraf
       wbox
       whois
       yersinia
@@ -332,7 +407,9 @@
       authoscope
       bruteforce-luks
       brutespray
+      conpass
       crunch
+      h8mail
       hashcat
       hashcat-utils
       hashdeep
@@ -342,7 +419,7 @@
       ncrack
       nth
       phrasendrescher
-      # python38Packages.patator
+      # python3Packages.patator
       thc-hydra
       truecrack
       chntpw
@@ -352,10 +429,12 @@
 
     port-scanners = with pkgs; [
       arp-scan
+      das
       ipscan
       masscan
       naabu
       nmap
+      udpx
       rustscan
       sx-go
       zmap
@@ -386,6 +465,7 @@
     reverse-engineering = with pkgs; [
       bingrep
       # cutter
+      flare-floss
       gdb
       ghidra-bin
       ioc-scan
@@ -402,7 +482,7 @@
       radare2
       rizin
       stacks
-      unicorn 
+      unicorn
       valgrind
       volatility3
       xortool
@@ -412,25 +492,28 @@
     ];
 
     services = with pkgs; [
-      enum4linux
-      enum4linux-ng
+      acltoolkit
+      checkip
+      ghunt
       ike-scan
-      # python3Packages.ldapdomaindump
-      ldeep
+      keepwn
       metasploit
+      nbutools
       nikto
       nuclei
+      nuclei-templates
       openrisk
       osv-scanner
-      checkip
-      onesixtyone
-      # siege
-      swaks
+      siege
       traitor
-      # wafw00f
       uncover
+    ];
+
+    email = with pkgs; [
+      mx-takeover
       ruler
-      trustymail
+      swaks
+      trustymail 
     ];
 
     smartcards = with pkgs; [
@@ -442,6 +525,7 @@
     ];
 
     snmp = with pkgs; [
+      braa
       onesixtyone
       snmpcheck
     ];
@@ -449,18 +533,20 @@
     sql = with pkgs; [sqlmap];
 
     ssh = with pkgs; [
+      baboossh
       sshchecker
       ssh-audit
-      # ssh-mitm
-      # ssb
+      ssh-mitm
     ];
 
     ssl-tls = with pkgs; [
+      cero
+      sslscan
       ssldump
       sslsplit
+      sslstrip
       testssl
       tlsx
-      sslscan
     ];
 
     supply-chain = with pkgs; [
@@ -494,7 +580,8 @@
       driftnet
       dsniff
       goreplay
-      # httpdump
+      httpdump
+      joincap
       junkie
       netsniff-ng
       ngrep
@@ -533,6 +620,7 @@
     vuln-analysis = with pkgs; [
       checksec
       chkrootkit
+      linux-exploit-suggester
       lynis
       safety-cli
       # tracee
@@ -540,10 +628,12 @@
     ];
 
     web = with pkgs; [
+      arjun
       bettercap
       brakeman
       burpsuite
       # cameradar
+      cansina
       cariddi
       chopchop
       clairvoyance
@@ -557,6 +647,7 @@
       dismap
       dontgo403
       ettercap
+      forbidden
       galer
       gau
       gobuster
@@ -568,17 +659,21 @@
       hakrawler
       hey
       httpx
+      python3Packages.hakuin
+      nodePackages.hyperpotamus
       jaeles
       jsubfinder
       jwt-hack
       katana
       kiterunner
+      mantra
       mitmproxy
-      # mitmproxy2swagger
+      mitmproxy2swagger
       monsoon
       mubeng
       nikto
       ntlmrecon
+      offat
       photon
       plecost
       proxify
@@ -594,18 +689,30 @@
       uddup
       wad
       webanalyze
+      websecprobe
       whatweb
       wprecon
       wpscan
-      # wuzz
+      wsrepl
+      wuzz
+      xcrawl3r
+      xnlinkfinder
+      xsubfind3r
       zap
       davtest
     ];
 
     windows = with pkgs; [
+      adidnsdump
       adreaper
       certipy
+      bloodhound-py
+      breads-ad
+      certi
+      certipy
+      certsync
       coercer
+      donpapi
       enum4linux
       enum4linux-ng
       erosmb
@@ -613,10 +720,17 @@
       go365
       gomapenum
       kerbrute
+      knowsmore
+      lil-pwny
+      nbtscan
       nbtscanner
       offensive-azure
+      python3Packages.lsassy
       python3Packages.pypykatz
-      # smbscan
+      rdwatool
+      samba
+      smbmap
+      smbscan
     ];
 
     wireless = with pkgs; [
@@ -624,7 +738,9 @@
       airgeddon
       bully
       cowpatty
+      dbmonster
       horst
+      killerbee
       kismet
       pixiewps
       reaverwps
@@ -636,7 +752,6 @@
       kalibrate-hackrf
       kalibrate-rtl
       multimon-ng
-      dbmonster
     ];
   };
 in
