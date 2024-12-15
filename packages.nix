@@ -184,7 +184,6 @@
       coreutils
       killall
       usbutils
-      ntfs3g
       ripgrep
       ripgrep-all
       ranger
@@ -200,7 +199,6 @@
       procs
       sd
       grex
-      linux-exploit-suggester
     ];
 
     git = with pkgs; [
@@ -257,17 +255,14 @@
     info-gathering = with pkgs; [
       metabigor
       sn0int
-      p0f
       theharvester
       urlhunter
       cloudbrute
       holehe
       # maigret
-      metabigor
       socialscan
       enumerepo
       ntopng
-      urlhunter
     ];
 
     cloud = with pkgs; [
@@ -361,7 +356,6 @@
       bandwhich
       bngblaster
       cdncheck
-      netexec
       evillimiter
       ipcalc
       iperf2
@@ -499,12 +493,10 @@
       keepwn
       metasploit
       nbutools
-      nikto
       nuclei
       nuclei-templates
       openrisk
       osv-scanner
-      siege
       traitor
       uncover
     ];
@@ -705,7 +697,6 @@
     windows = with pkgs; [
       adidnsdump
       adreaper
-      certipy
       bloodhound-py
       breads-ad
       certi
@@ -728,7 +719,6 @@
       python3Packages.lsassy
       python3Packages.pypykatz
       rdwatool
-      samba
       smbmap
       smbscan
     ];
@@ -747,7 +737,6 @@
       reaverwps-t6x
       wavemon
       wifite2
-      util-linux
       gqrx
       kalibrate-hackrf
       kalibrate-rtl
