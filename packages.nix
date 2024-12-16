@@ -108,7 +108,9 @@
     forensics = with pkgs; [
       afflib
       amoco
-      acquire
+      # acquire error -  error: dissect-volume-3.13 not supported for interpreter python3.12
+      # TO-DO: find a workaround?
+      # acquire
       inputs.chainsaw.packages.${pkgs.stdenv.hostPlatform.system}.chainsaw
       dcfldd
       ddrescue
@@ -274,7 +276,8 @@
       goblob
       imdshift
       pacu
-      poutine
+      # error: 'main module (github.com/boostsecurityio/poutine) does not contain package github.com/boostsecurityio/poutine/dagger' 
+      # poutine
       prowler
       yatas
     ];
@@ -467,8 +470,10 @@
       mono
       pev
       pwndbg
-      python3Packages.binwalk
-      python3Packages.binwalk-full
+      # error related to binwalk after nix flake update
+      # 'attribute not found'
+      # python3Packages.binwalk
+      # python3Packages.binwalk-full
       python3Packages.karton-core
       python3Packages.malduck
       python3Packages.r2pipe
@@ -614,7 +619,7 @@
       chkrootkit
       linux-exploit-suggester
       lynis
-      safety-cli
+      # safety-cli
       # tracee
       vulnix
     ];
