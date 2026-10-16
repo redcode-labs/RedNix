@@ -1,0 +1,11 @@
+result
+result-*
+.direnv/
+*.DS_Store
+
+# microVM runtime artifacts, created in CWD by `nix run .#microvm`
+control.socket
+rednix-home.img
+
+# WIP
+.drafts/

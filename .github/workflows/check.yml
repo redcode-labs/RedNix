@@ -1,0 +1,103 @@
+name: check
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+  workflow_dispatch:
+  # Weekly run catches upstream/infra drift (a cache eviction, a runner
+  # image change) against the pinned lock, independent of manual bumps.
+  schedule:
+    - cron: "0 6 * * 1" # Mondays 06:00 UTC
+
+concurrency:
+  group: check-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  flake-check:
+    name: nix flake check
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+      # nix-installer-action installs Determinate Nix
+      - uses: DeterminateSystems/nix-installer-action@ef8a148080ab6020fd15196c2084a2eea5ff2d25 # v22
+      - run: nix flake check --no-build --all-systems
+
+  # Formatting gate: run the flake's own formatter (the pinned nixfmt
+  # wrapper) and fail if it changes anything.
+  fmt:
+    name: nixfmt --check
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+      - uses: DeterminateSystems/nix-installer-action@ef8a148080ab6020fd15196c2084a2eea5ff2d25 # v22
+      - run: nix fmt
+      - run: git diff --exit-code
+
+  # Eval-only smoke test of the default dev shell on representative
+  # systems (one Linux, one darwin).
+  devshell-eval:
+    name: devShell eval (${{ matrix.system }})
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - system: x86_64-linux
+            runner: ubuntu-latest
+          - system: aarch64-darwin
+            runner: macos-14
+    runs-on: ${{ matrix.runner }}
+    steps:
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+      - uses: DeterminateSystems/nix-installer-action@ef8a148080ab6020fd15196c2084a2eea5ff2d25 # v22
+      - run: |
+          nix eval --raw \
+            --expr 'toString (builtins.getFlake (toString ./.)).devShells."${{ matrix.system }}".default.drvPath'
+
+  # The microVM runner's drvPath is NOT forced by `nix flake check`, which
+  # never descends into the runner's nested kernel derivation
+  microvm-eval:
+    name: microVM eval (${{ matrix.system }})
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - system: x86_64-linux
+            runner: ubuntu-latest
+          - system: aarch64-linux
+            runner: ubuntu-latest
+          - system: aarch64-darwin
+            runner: macos-14
+    runs-on: ${{ matrix.runner }}
+    steps:
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+      - uses: DeterminateSystems/nix-installer-action@ef8a148080ab6020fd15196c2084a2eea5ff2d25 # v22
+      - run: nix eval --raw '.#packages.${{ matrix.system }}.microvm.drvPath'
+
+  # Build coverage on x86_64-linux for the input-sourced packages
+  # that aren't on cache.nixos.org (pwndbg, nix-alien).
+  build-linux:
+    name: build inputs (x86_64-linux)
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+      - uses: jlumbroso/free-disk-space@54081f138730dfa15788a46383842cd2f914a1be # v1.3.1
+        with:
+          tool-cache: true
+          android: true
+          dotnet: true
+          haskell: true
+          large-packages: false
+          swap-storage: false
+      - uses: DeterminateSystems/nix-installer-action@ef8a148080ab6020fd15196c2084a2eea5ff2d25 # v22
+      - uses: DeterminateSystems/magic-nix-cache-action@908b263ff629f4cc17666315b7fd3ec127c6244d # v14
+      - run: nix build --print-build-logs .#pwndbg .#nix-alien
