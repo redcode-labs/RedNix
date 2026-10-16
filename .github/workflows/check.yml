@@ -57,9 +57,7 @@ jobs:
     steps:
       - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
       - uses: DeterminateSystems/nix-installer-action@ef8a148080ab6020fd15196c2084a2eea5ff2d25 # v22
-      - run: |
-          nix eval --raw \
-            --expr 'toString (builtins.getFlake (toString ./.)).devShells."${{ matrix.system }}".default.drvPath'
+      - run: nix eval --raw '.#devShells.${{ matrix.system }}.default.drvPath'
 
   # The microVM runner's drvPath is NOT forced by `nix flake check`, which
   # never descends into the runner's nested kernel derivation
