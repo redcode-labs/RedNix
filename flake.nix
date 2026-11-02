@@ -167,14 +167,26 @@
             paths = packagesList;
             ignoreCollisions = true;
           };
-          # `nix run .#microvm` boots the toolkit VM on this host. Linux
-          # hosts reuse the nixosConfigurations entry; darwin hosts get an
-          # inline variant with a darwin-native qemu runner.
-          microvm =
+        }
+      );
+
+      # `nix run .#microvm` boots the toolkit VM on this host. Linux hosts
+      # reuse the nixosConfigurations entry; darwin hosts get an inline
+      # variant with a darwin-native qemu runner.
+      apps = genSystems (
+        system:
+        let
+          runner =
             if pkgs.${system}.stdenv.hostPlatform.isLinux then
               self.nixosConfigurations.${system}.config.microvm.declaredRunner
             else
               (mkMicrovm system [ ]).config.microvm.declaredRunner;
+        in
+        {
+          microvm = {
+            type = "app";
+            program = nixpkgs.lib.getExe runner;
+          };
         }
       );
 

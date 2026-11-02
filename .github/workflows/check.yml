@@ -59,8 +59,8 @@ jobs:
       - uses: DeterminateSystems/nix-installer-action@3138316df39ed29be04236d7ffc686fa525866aa # v23
       - run: nix eval --raw '.#devShells.${{ matrix.system }}.default.drvPath'
 
-  # The microVM runner's drvPath is NOT forced by `nix flake check`, which
-  # never descends into the runner's nested kernel derivation
+  # The microVM runner is NOT forced by `nix flake check`, which never
+  # descends into the runner's nested kernel derivation.
   microvm-eval:
     name: microVM eval (${{ matrix.system }})
     timeout-minutes: 20
@@ -78,7 +78,7 @@ jobs:
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - uses: DeterminateSystems/nix-installer-action@3138316df39ed29be04236d7ffc686fa525866aa # v23
-      - run: nix eval --raw '.#packages.${{ matrix.system }}.microvm.drvPath'
+      - run: nix eval --raw '.#apps.${{ matrix.system }}.microvm.program'
 
   # Build coverage on x86_64-linux for the input-sourced packages
   # that aren't on cache.nixos.org (pwndbg, nix-alien).
